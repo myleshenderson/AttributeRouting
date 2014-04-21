@@ -31,11 +31,13 @@ namespace AttributeRouting.Framework
                 return null;
             }
 
-            // Split the sections and take all but the last two.
+            // Split the sections and throw away all but the left most piece of the FQDN
             var sections = host.Split('.');
-            return sections.Length < 3
-                       ? null
-                       : String.Join(".", sections.Take(sections.Length - 2));
+            if (sections.Length > 2)
+            {
+                return sections[0];
+            }
+            return null;
         }
     }
 }

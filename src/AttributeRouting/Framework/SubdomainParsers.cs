@@ -12,7 +12,7 @@ namespace AttributeRouting.Framework
     public static class SubdomainParsers
     {
         /// <summary>
-        /// Will parse all but the last two sections from a given host.
+        /// Will return the left most section of the fqdn
         /// </summary>
         public static Func<string, string> ThreeSection
         {

@@ -121,8 +121,9 @@ namespace AttributeRouting
 
         /// <summary>
         /// Given the requested hostname, this delegate parses the subdomain.
-        /// The default yields everything before the domain name;
-        /// eg: www.example.com yields www, and example.com yields null.
+        /// Given an FQDN, return the left-most piece of the FQDN
+        /// null if this is an IP address or if there are just the TLD and SLD (ex: example.com)
+        /// null if the the parameter is null or empty
         /// </summary>
         public Func<string, string> SubdomainParser { get; set; }
 
